@@ -10,7 +10,7 @@ const PostPage = () => {
 
   return (
     <Container>
-      <Heading title={"Posts"} center subtitle={"100 posts"} />
+      <Heading title={"Posts"} center subtitle={`${posts.length} posts`} />
       <hr />
       <div className="mt-4 flex flex-col items-center gap-2">
         {posts.map((post) => (

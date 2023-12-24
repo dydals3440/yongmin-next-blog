@@ -25,6 +25,7 @@ export function getSortedPostsData() {
       title: matterResult.data.title,
       date: matterResult.data.date,
       categories: matterResult.data.categories,
+      contentHtml: matterResult.content,
     };
 
     return blogPost;

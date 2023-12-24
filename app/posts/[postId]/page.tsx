@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
 import Container from "../../components/Container";
 import { getPostData } from "@/app/libs/posts";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type TParams = {
   postId?: string;
@@ -15,7 +15,7 @@ const PostDetailPage = async ({ params }: { params: TParams }) => {
   return (
     <Container>
       <h3>{title}</h3>
-      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{contentHtml}</ReactMarkdown>
     </Container>
   );
 };
