@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Post } from "../types/post";
+import { remark } from "remark";
+import html from "remark-html";
 
 const postsDirectory = path.join(process.cwd(), "content");
 
@@ -29,4 +31,31 @@ export function getSortedPostsData() {
   });
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export async function getPostData(id: string) {
+  const fullPath = path.join(postsDirectory, `/${id}`, `/index.md`);
+  console.log(fullPath);
+  const fileContents = fs.readFileSync(fullPath, "utf-8");
+
+  const matterResult = matter(fileContents);
+
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content);
+
+  const contentHtml = processedContent.toString();
+
+  console.log(processedContent);
+
+  const blogPostWithHTML: Post & { contentHtml: string } = {
+    id,
+    emoji: matterResult.data.emoji,
+    title: matterResult.data.title,
+    date: matterResult.data.date,
+    categories: matterResult.data.categories,
+    contentHtml,
+  };
+
+  return blogPostWithHTML;
 }
