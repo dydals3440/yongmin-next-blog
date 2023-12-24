@@ -14,9 +14,7 @@ const AboutPage = () => {
       <br />
       <Heading title="Activity" subtitle="활동 내역" center />
       <div className="flex items-center ">
-        <div className="">
-          <h2 className="group-date">2023</h2>
-        </div>
+        <h2 className="group-date">2023</h2>
       </div>
       {biography.map((bio, idx) => (
         <TimeLine
