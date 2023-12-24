@@ -1,14 +1,19 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkToc from "remark-toc";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Image from "next/image";
+import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
+import rehypeToc from "@jsdevtools/rehype-toc";
 
 const MarkdownViewer = ({ content }: { content: string }) => {
   return (
     <ReactMarkdown
-      className="prose"
-      remarkPlugins={[remarkGfm]}
+      className="prose m-auto"
+      remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+      rehypePlugins={[rehypeRaw, rehypeSlug, rehypeToc]}
       components={{
         code(props) {
           const { children, className, node, ...rest } = props;

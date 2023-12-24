@@ -2,7 +2,7 @@ export const biography = [
   {
     date: "SEPTEMBER 2023",
     title: "UNIVERSITY MAKE US CHALLENGE 5th",
-    description: "UMC 4기 FRONT-END 운영진 활동",
+    description: "UMC 5기 FRONT-END 운영진 활동",
   },
   {
     date: "MARCH 2023",

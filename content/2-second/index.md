@@ -1,7 +1,7 @@
 ---
 emoji: ⚒️
-title: "기술 블로그, 돌고 돌아 직접 만들다 (feat. Gatsby)"
-date: "2023-12-11"
+title: "기술 블로그, 마침내 직접 만들다 (feat. Next)"
+date: "2023-12-24"
 categories: Dev 회고
 ---
 
@@ -265,6 +265,8 @@ categories: life dev
 
 질문이 있으시거나 제안하고 싶으신 기능이 있으시다면, 👉 [여기](https://github.com/danmin20/danmin-gatsby-blog-template/issues/1)에 편하게 댓글 남겨주세요! :)
 
-```toc
+```markdown
+[TOC]
 
+# Heading 1
 ```

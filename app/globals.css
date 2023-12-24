@@ -33,3 +33,29 @@ body,
     tracking-wide mb-2;
   }
 }
+
+.toc {
+  position: fixed;
+  font-size: 1rem;
+  list-style: none;
+  text-decoration: none;
+  top: 100px;
+  right: 100px;
+  display: block;
+
+  @media screen and (max-width: 1200px) {
+    display: none !important;
+  }
+
+  &:ol {
+    text-decoration: none;
+  }
+}
+
+.toc-link {
+  text-decoration: none;
+}
+
+.toc .toc-item::marker {
+  font-size: 0px;
+}
