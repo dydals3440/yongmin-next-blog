@@ -6,3 +6,9 @@ export type Post = {
   categories: string;
   contentHtml: string;
 };
+
+export type Biography = {
+  date: string;
+  title: string;
+  description: string;
+};
