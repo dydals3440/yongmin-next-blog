@@ -35,7 +35,7 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ projects }) => {
           </div>
         ))} */}
         {projects.stack?.map((project, idx) => (
-          <div key={idx} className="font-light text-sm font-bold">
+          <div key={idx} className="text-sm font-bold">
             {project}
           </div>
         ))}

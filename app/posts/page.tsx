@@ -1,11 +1,14 @@
-import React, { useState } from "react";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
-import { getSortedPostsData } from "@/app/libs/posts";
+import { Post } from "../types/post";
 import FilterablePosts from "./FilterablePosts";
 
+import { getSortedPostsData } from "@/app/libs/posts";
+
 const PostPage = async () => {
-  const posts = await getSortedPostsData();
+  const data = await getSortedPostsData();
+  const posts: Post[] = data.currentPosts;
+
   const categories = [...new Set(posts.map((post) => post.categories))];
 
   return (
