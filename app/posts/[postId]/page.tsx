@@ -5,7 +5,7 @@ import Comment from "@/app/components/utterances/Comment";
 import PostHeader from "@/app/components/post/PostHeader";
 
 type TParams = {
-  postId?: string;
+  postId: string;
 };
 
 const PostDetailPage = async ({ params }: { params: TParams }) => {

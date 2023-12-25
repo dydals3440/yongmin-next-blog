@@ -2,15 +2,16 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Post } from "../types/post";
-import { remark } from "remark";
-import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), "content");
+const postsDirectory = path.join(process.cwd(), "public");
 
 export function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory);
+  const filteredFileNames = fileNames.filter(
+    (fileName) => !fileName.endsWith(".png")
+  );
 
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsData = filteredFileNames.map((fileName) => {
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName, `/index.md`);
     const id = fileName;
@@ -49,6 +50,7 @@ export async function getPostData(id: string) {
     categories: matterResult.data.categories,
     contentHtml: matterResult.content,
   };
+  console.log(matterResult.content);
 
   return blogPostWithHTML;
 }

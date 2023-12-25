@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { getSortedPostsData } from "@/app/libs/posts";
-import ColumnPost from "../components/post/ColumnPost";
+import FilterablePosts from "./FilterablePosts";
 
-const PostPage = () => {
-  const posts = getSortedPostsData();
+const PostPage = async () => {
+  const posts = await getSortedPostsData();
+  const categories = [...new Set(posts.map((post) => post.categories))];
 
   return (
     <Container>
       <Heading title={"Posts"} center subtitle={`${posts.length} posts`} />
       <hr />
-
-      <div className="mt-4 flex flex-col items-center gap-2">
-        {posts.map((post) => (
-          <ColumnPost post={post} key={post.id} />
-        ))}
-      </div>
+      <FilterablePosts posts={posts} categories={categories} />
     </Container>
   );
 };
