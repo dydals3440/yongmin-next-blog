@@ -5,8 +5,8 @@ import Container from "../components/Container";
 import Heading from "../components/Heading";
 import Banner from "../components/banner/Banner";
 import TimeLine from "../components/timeline/TimeLine";
-import { biography } from "@/timeline/timeline";
-import { awards } from "@/timeline/awards";
+import { biography } from "@/constants/timeline";
+import { awards } from "@/constants/awards";
 
 const AboutPage = () => {
   return (
